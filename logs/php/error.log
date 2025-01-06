@@ -1,0 +1,94 @@
+[24-Oct-2024 04:50:54 UTC] WordPress database error Table 'wp_e_events' already exists for query CREATE TABLE `wp_e_events` (
+			id bigint(20) unsigned auto_increment primary key,
+			event_data text null,
+			created_at datetime not null
+		) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci; made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, Elementor\Plugin->init, Elementor\Plugin->init_components, Elementor\Core\Admin\Admin->__construct, Elementor\Plugin->init_common, Elementor\Core\Common\App->init_components, Elementor\Core\Common\Modules\EventTracker\Module->__construct, Elementor\Core\Common\Modules\EventTracker\DB->__construct, Elementor\Core\Common\Modules\EventTracker\DB->create_table
+[24-Oct-2024 04:50:54 UTC] WordPress database error Duplicate key name 'created_at_index' for query ALTER TABLE wp_e_events
+    		ADD INDEX `created_at_index` (`created_at`)
+		 made by require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('init'), WP_Hook->do_action, WP_Hook->apply_filters, Elementor\Plugin->init, Elementor\Plugin->init_components, Elementor\Core\Admin\Admin->__construct, Elementor\Plugin->init_common, Elementor\Core\Common\App->init_components, Elementor\Core\Common\Modules\EventTracker\Module->__construct, Elementor\Core\Common\Modules\EventTracker\DB->__construct, Elementor\Core\Common\Modules\EventTracker\DB->add_indexes
+[24-Oct-2024 04:51:44 UTC] PHP Warning:  Undefined array key "name" in C:\Users\marco\Local Sites\visitsaladas\app\public\wp-content\plugins\woocommerce\includes\class-wc-install.php on line 921
+[24-Oct-2024 04:51:44 UTC] PHP Warning:  Undefined array key "title" in C:\Users\marco\Local Sites\visitsaladas\app\public\wp-content\plugins\woocommerce\includes\class-wc-install.php on line 923
+[24-Oct-2024 04:51:44 UTC] PHP Warning:  Undefined array key "name" in C:\Users\marco\Local Sites\visitsaladas\app\public\wp-content\plugins\woocommerce\includes\class-wc-install.php on line 921
+[24-Oct-2024 04:51:44 UTC] PHP Warning:  Undefined array key "title" in C:\Users\marco\Local Sites\visitsaladas\app\public\wp-content\plugins\woocommerce\includes\class-wc-install.php on line 923
+[24-Oct-2024 04:51:50 UTC] WordPress database error Table 'wp_wc_orders' already exists for query 
+CREATE TABLE wp_wc_orders (
+	id bigint(20) unsigned,
+	status varchar(20) null,
+	currency varchar(10) null,
+	type varchar(20) null,
+	tax_amount decimal(26,8) null,
+	total_amount decimal(26,8) null,
+	customer_id bigint(20) unsigned null,
+	billing_email varchar(320) null,
+	date_created_gmt datetime null,
+	date_updated_gmt datetime null,
+	parent_order_id bigint(20) unsigned null,
+	payment_method varchar(100) null,
+	payment_method_title text null,
+	transaction_id varchar(100) null,
+	ip_address varchar(100) null,
+	user_agent text null,
+	customer_note text null,
+	PRIMARY KEY (id),
+	KEY status (status),
+	KEY date_created (date_created_gmt),
+	KEY customer_id_billing_email (customer_id, billing_email(171)),
+	KEY billing_email (billing_email(191)),
+	KEY type_status_date (type, status, date_created_gmt),
+	KEY parent_order_id (parent_order_id),
+	KEY date_updated (date_updated_gmt)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by do_action('admin_init'), WP_Hook->do_action, WP_Hook->apply_filters, WC_Install::__callStatic, call_user_func_array, WC_Install::newly_installed, do_action('woocommerce_newly_installed'), WP_Hook->do_action, WP_Hook->apply_filters, WC_Install::maybe_enable_hpos, Automattic\WooCommerce\Internal\Features\FeaturesController->change_feature_enable, update_option, apply_filters('pre_update_option'), WP_Hook->apply_filters, Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController->__call, call_user_func_array, Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController->process_pre_update_option, Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer->create_database_tables, Automattic\WooCommerce\Internal\Utilities\DatabaseUtil->dbdelta, dbDelta
+[24-Oct-2024 04:51:50 UTC] WordPress database error Table 'wp_wc_order_addresses' already exists for query 
+CREATE TABLE wp_wc_order_addresses (
+	id bigint(20) unsigned auto_increment primary key,
+	order_id bigint(20) unsigned NOT NULL,
+	address_type varchar(20) null,
+	first_name text null,
+	last_name text null,
+	company text null,
+	address_1 text null,
+	address_2 text null,
+	city text null,
+	state text null,
+	postcode text null,
+	country text null,
+	email varchar(320) null,
+	phone varchar(100) null,
+	KEY order_id (order_id),
+	UNIQUE KEY address_type_order_id (address_type, order_id),
+	KEY email (email(191)),
+	KEY phone (phone)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by do_action('admin_init'), WP_Hook->do_action, WP_Hook->apply_filters, WC_Install::__callStatic, call_user_func_array, WC_Install::newly_installed, do_action('woocommerce_newly_installed'), WP_Hook->do_action, WP_Hook->apply_filters, WC_Install::maybe_enable_hpos, Automattic\WooCommerce\Internal\Features\FeaturesController->change_feature_enable, update_option, apply_filters('pre_update_option'), WP_Hook->apply_filters, Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController->__call, call_user_func_array, Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController->process_pre_update_option, Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer->create_database_tables, Automattic\WooCommerce\Internal\Utilities\DatabaseUtil->dbdelta, dbDelta
+[24-Oct-2024 04:51:50 UTC] WordPress database error Table 'wp_wc_order_operational_data' already exists for query 
+CREATE TABLE wp_wc_order_operational_data (
+	id bigint(20) unsigned auto_increment primary key,
+	order_id bigint(20) unsigned NULL,
+	created_via varchar(100) NULL,
+	woocommerce_version varchar(20) NULL,
+	prices_include_tax tinyint(1) NULL,
+	coupon_usages_are_counted tinyint(1) NULL,
+	download_permission_granted tinyint(1) NULL,
+	cart_hash varchar(100) NULL,
+	new_order_email_sent tinyint(1) NULL,
+	order_key varchar(100) NULL,
+	order_stock_reduced tinyint(1) NULL,
+	date_paid_gmt datetime NULL,
+	date_completed_gmt datetime NULL,
+	shipping_tax_amount decimal(26,8) NULL,
+	shipping_total_amount decimal(26,8) NULL,
+	discount_tax_amount decimal(26,8) NULL,
+	discount_total_amount decimal(26,8) NULL,
+	recorded_sales tinyint(1) NULL,
+	UNIQUE KEY order_id (order_id),
+	KEY order_key (order_key)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by do_action('admin_init'), WP_Hook->do_action, WP_Hook->apply_filters, WC_Install::__callStatic, call_user_func_array, WC_Install::newly_installed, do_action('woocommerce_newly_installed'), WP_Hook->do_action, WP_Hook->apply_filters, WC_Install::maybe_enable_hpos, Automattic\WooCommerce\Internal\Features\FeaturesController->change_feature_enable, update_option, apply_filters('pre_update_option'), WP_Hook->apply_filters, Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController->__call, call_user_func_array, Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController->process_pre_update_option, Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer->create_database_tables, Automattic\WooCommerce\Internal\Utilities\DatabaseUtil->dbdelta, dbDelta
+[24-Oct-2024 04:51:50 UTC] WordPress database error Table 'wp_wc_orders_meta' already exists for query 
+CREATE TABLE wp_wc_orders_meta (
+	id bigint(20) unsigned auto_increment primary key,
+	order_id bigint(20) unsigned null,
+	meta_key varchar(255),
+	meta_value text null,
+	KEY meta_key_value (meta_key(100), meta_value(82)),
+	KEY order_id_meta_key_meta_value (order_id, meta_key(100), meta_value(82))
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by do_action('admin_init'), WP_Hook->do_action, WP_Hook->apply_filters, WC_Install::__callStatic, call_user_func_array, WC_Install::newly_installed, do_action('woocommerce_newly_installed'), WP_Hook->do_action, WP_Hook->apply_filters, WC_Install::maybe_enable_hpos, Automattic\WooCommerce\Internal\Features\FeaturesController->change_feature_enable, update_option, apply_filters('pre_update_option'), WP_Hook->apply_filters, Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController->__call, call_user_func_array, Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController->process_pre_update_option, Automattic\WooCommerce\Internal\DataStores\Orders\DataSynchronizer->create_database_tables, Automattic\WooCommerce\Internal\Utilities\DatabaseUtil->dbdelta, dbDelta
+[24-Oct-2024 05:08:51 UTC] PHP Warning:  Undefined array key "editor_post_id" in C:\Users\marco\Local Sites\visitsaladas\app\public\wp-content\plugins\elementor\modules\history\revisions-manager.php on line 363
